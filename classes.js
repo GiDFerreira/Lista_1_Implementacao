@@ -88,3 +88,18 @@ class CLI {
       );
     }
 }
+
+const adaptador = new ArmazenamentoContatos();
+const gerenciadorContatos = new GerenciadorContatos(adaptador);
+const cli = new CLI(gerenciadorContatos);
+
+cli.adicionarContato("João Vitor", "123456789", "joaov@gmail.com");
+cli.adicionarContato("Maria Vitória", "987654321", "mariaToria@gmail.com");
+cli.adicionarContato("Jhonatan", "10101010", "aJhon@gmail.com");
+cli.adicionarContato("Bethina", "232323", "bet@gmail.com");
+
+
+
+cli.listarContatos();
+
+cli.buscarContatos("j")
