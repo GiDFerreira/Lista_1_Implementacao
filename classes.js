@@ -25,9 +25,9 @@ class ArmazenamentoContatos {
     listar() {
       return this.contatos;
     }
-  }
+}
 
-  class GerenciadorContatos {
+class GerenciadorContatos {
     constructor(adaptador) {
       this.adaptador = adaptador;
     }
@@ -44,4 +44,47 @@ class ArmazenamentoContatos {
     listarContatos() {
       return this.adaptador.listar();
     }
-  }
+}
+
+class EstrategiaBusca {
+    constructor() {}
+  
+    buscar(contatos, termo) {
+      // Implementação padrão de busca
+      return contatos.filter(contato =>
+        contato.nome.toLowerCase().includes(termo.toLowerCase())
+      );
+    }
+}
+
+class CLI {
+    constructor(gerenciadorContatos) {
+      this.gerenciadorContatos = gerenciadorContatos;
+      this.estrategiaBusca = new EstrategiaBusca();
+    }
+  
+    adicionarContato(nome, telefone, email) {
+      this.gerenciadorContatos.adicionarContato(nome, telefone, email);
+    }
+  
+    removerContato(contato) {
+      this.gerenciadorContatos.removerContato(contato);
+    }
+  
+    listarContatos() {
+      const contatos = this.gerenciadorContatos.listarContatos();
+      console.log("Lista de Contatos:");
+      contatos.forEach(contato =>
+        console.log(`Nome: ${contato.nome}, Telefone: ${contato.telefone}, Email: ${contato.email}`)
+      );
+    }
+  
+    buscarContatos(termo) {
+      const contatos = this.gerenciadorContatos.listarContatos();
+      const resultados = this.estrategiaBusca.buscar(contatos, termo);
+      console.log("Resultados da Busca:");
+      resultados.forEach(contato =>
+        console.log(`Nome: ${contato.nome}, Telefone: ${contato.telefone}, Email: ${contato.email}`)
+      );
+    }
+}
