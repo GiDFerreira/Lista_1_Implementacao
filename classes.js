@@ -94,13 +94,14 @@ const adaptador = new ArmazenamentoContatos();
 const gerenciadorContatos = new GerenciadorContatos(adaptador);
 const interface = new CLI(gerenciadorContatos);
 
-cli.adicionarContato("João Vitor", "123456789", "joaov@gmail.com");
-cli.adicionarContato("Maria Vitória", "987654321", "mariaToria@gmail.com");
-cli.adicionarContato("Jhonatan", "10101010", "aJhon@gmail.com");
-cli.adicionarContato("Bethina", "232323", "bet@gmail.com");
+interface.adicionarContato("João Vitor", "123456789", "joaov@gmail.com");
+interface.adicionarContato("Maria Vitória", "987654321", "mariaToria@gmail.com");
+interface.adicionarContato("Jhonatan", "10101010", "aJhon@gmail.com");
+interface.adicionarContato("Bethina", "232323", "bet@gmail.com");
+interface.adicionarContato("Gabriella", "2487837", "gabriella@gmail.com");
+interface.adicionarContato("Giovanna", "2525253", "giovanna@gmail.com");
 
+interface.listarContatos();
 
-
-cli.listarContatos();
-
-cli.buscarContatos("j")
+interface.buscarContatos("j");
+interface.buscarContatos("g");
