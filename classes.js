@@ -1,4 +1,4 @@
-class Contato{
+class Contato{ //Representa informações de contato
     constructor(nome, telefone, email){
         this.nome = nome;
         this.telefone = telefone;
@@ -6,7 +6,7 @@ class Contato{
     }
 }
 
-class ArmazenamentoContatos {
+class ArmazenamentoContatos { //Função para armazenar contatos, adicionar, remover e listar
     constructor() {
       this.contatos = [];
     }
@@ -27,7 +27,7 @@ class ArmazenamentoContatos {
     }
 }
 
-class GerenciadorContatos {
+class GerenciadorContatos { //Manipula lista de contatos
     constructor(adaptador) {
       this.adaptador = adaptador;
     }
@@ -46,7 +46,7 @@ class GerenciadorContatos {
     }
 }
 
-class EstrategiaBusca {
+class EstrategiaBusca { //Busca os contatos existentes
     constructor() {}
   
     buscar(contatos, termo) {
@@ -57,7 +57,7 @@ class EstrategiaBusca {
     }
 }
 
-class CLI {
+class CLI { //Fornece uma interface na linha de comando
     constructor(gerenciadorContatos) {
       this.gerenciadorContatos = gerenciadorContatos;
       this.estrategiaBusca = new EstrategiaBusca();
@@ -89,17 +89,21 @@ class CLI {
     }
 }
 
+//Cria-se novos objetos nas classes
 const adaptador = new ArmazenamentoContatos();
 const gerenciadorContatos = new GerenciadorContatos(adaptador);
 const cli = new CLI(gerenciadorContatos);
 
+
+//Adiciona informações para contato
 cli.adicionarContato("João Vitor", "123456789", "joaov@gmail.com");
 cli.adicionarContato("Maria Vitória", "987654321", "mariaToria@gmail.com");
 cli.adicionarContato("Jhonatan", "10101010", "aJhon@gmail.com");
 cli.adicionarContato("Bethina", "232323", "bet@gmail.com");
 
 
-
+//Lista contatos
 cli.listarContatos();
 
+//Pesquisa contatos com a inicial J
 cli.buscarContatos("j")
