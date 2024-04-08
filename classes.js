@@ -1,3 +1,6 @@
+//Gabriella Ribeiro  RA:2487837
+//Giovanna Ferreira  RA:2477971
+
 class Contato{ //Representa informações de contato
     constructor(nome, telefone, email){
         this.nome = nome;
